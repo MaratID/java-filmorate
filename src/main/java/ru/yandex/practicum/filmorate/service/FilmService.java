@@ -15,13 +15,13 @@ import java.util.List;
 public class FilmService {
     FilmStorage filmStorage;
     InMemoryUserStorage userStorage;
-    
+
     @Autowired
     public FilmService(FilmStorage filmStorage, InMemoryUserStorage userStorage) {
         this.filmStorage = filmStorage;
         this.userStorage = userStorage;
     }
-    //добавление лайка 
+    //добавление лайка
     public void likeFilm(int userId, int filmId) {
         User user = userStorage.findById(userId);
         if (user == null) {
@@ -31,7 +31,7 @@ public class FilmService {
         film.setLikes(film.getLikes() + 1);
         filmStorage.update(film);
     }
-    //удаление лайка 
+    //удаление лайка
     public void unlikeFilm(int userId, int filmId) {
         User user = userStorage.findById(userId);
         if (user == null) {

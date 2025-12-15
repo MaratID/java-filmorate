@@ -15,13 +15,13 @@ import java.util.List;
 public class FilmController {
     private final InMemoryFilmStorage filmStorage;
     private final FilmService filmService;
-    
+
     @Autowired
     public FilmController(InMemoryFilmStorage inMemoryFilmStorage, FilmService filmService) {
         this.filmStorage = inMemoryFilmStorage;
         this.filmService = filmService;
     }
-    
+
     @GetMapping
     public Collection<Film> findAll() {
         return filmStorage.findAll();
@@ -36,17 +36,17 @@ public class FilmController {
     public Film update(@RequestBody Film newFilm) {
         return filmStorage.update(newFilm);
     }
-    
+
     @PutMapping(value = "/{id}/like/{userId}")
     public void likeFilm(@RequestBody @PathVariable int id, @PathVariable int userId) {
         filmService.likeFilm(userId, id);
     }
 
-    @DeleteMapping(value = "/{id}/like/{userId}") 
+    @DeleteMapping(value = "/{id}/like/{userId}")
     public void deleteLike(@RequestBody @PathVariable int id, @PathVariable int userId) {
         filmService.unlikeFilm(userId, id);
     }
-    
+
     @GetMapping("/popular")
     public Collection<Film> getMostLiked (@RequestParam int count) {
         return filmService.getPopularFilms(count);

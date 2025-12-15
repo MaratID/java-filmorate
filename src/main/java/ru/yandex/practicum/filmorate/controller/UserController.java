@@ -21,7 +21,7 @@ public class UserController {
         this.userService = userService;
         this.userStorage = userStorage;
     }
-    
+
     @GetMapping
     public Collection<User> findAll() {
         return userStorage.findAll();
@@ -36,17 +36,17 @@ public class UserController {
     public User update(@RequestBody User newUser) {
         return userStorage.update(newUser);
     }
-    
+
     @PutMapping(value = "/{id}/friends/{friendId}")
     public void addFriend(@RequestBody @PathVariable int id, @PathVariable int friendId) {
         userService.addFriend(id, friendId);
     }
-    
+
     @DeleteMapping(value = "/{id}/friends/{friendId}")
     public void deleteFriend(@RequestBody @PathVariable int id, @PathVariable int friendId) {
         userService.removeFriend(id, friendId);
     }
-    
+
     @GetMapping(value = "/{id}/friends")
     public Collection<User> getUserFriends(@RequestBody @PathVariable int id) {
         return userService.getFriends(id);
@@ -56,5 +56,5 @@ public class UserController {
     public Collection<User> getCommonFriends(@RequestBody @PathVariable int id, @PathVariable int otherId) {
        return userService.getCommonFriends(id, otherId);
     }
-    
+
 }

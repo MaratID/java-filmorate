@@ -15,13 +15,13 @@ import java.util.stream.Collectors;
 @Service
 public class UserService {
     UserStorage userStorage;
-    
+
     @Autowired
     public UserService(UserStorage userStorage) {
         this.userStorage = userStorage;
     }
-    
-    
+
+
     //добавление в друзья
     public void addFriend(int userId, int friendId) {
         User user = userStorage.findById(userId);
@@ -36,7 +36,7 @@ public class UserService {
         user.getFriends().add(friend.getId());
         friend.getFriends().add(user.getId());
     }
-    
+
     //удаление из друзей
     public void removeFriend(int userId, int friendId) {
         User user = userStorage.findById(userId);
@@ -64,11 +64,11 @@ public class UserService {
         commonFriendsIds.retainAll(other.getFriends().stream().toList());
 
         List<User> commonFriends = commonFriendsIds.stream()
-                .map(userStorage::findById) 
+                .map(userStorage::findById)
                 .collect(Collectors.toList());
         return commonFriends;
     }
-    
+
     public List<User> getFriends(int id) {
         User user = userStorage.findById(id);
         if (user == null) {
@@ -77,7 +77,7 @@ public class UserService {
         return user.getFriends().stream()
                 .map(userStorage::findById)
                 .collect(Collectors.toList());
-        
+
     }
-    
+
 }

@@ -55,7 +55,7 @@ public class InMemoryUserStorage implements UserStorage{
             oldUser.setBirthday(newUser.getBirthday());
             userLog.info("Сведения о пользователе обновлены");
             return oldUser;
-        } 
+        }
         throw new NotFoundExeption("Пользователь " + newUser.getId() + " не найден");
     }
 
@@ -63,7 +63,7 @@ public class InMemoryUserStorage implements UserStorage{
     public void delete(User user) {
         users.remove(user);
     }
-    
+
     @Override
     public User findById(int userId) {
         if (users.get(userId) == null) {
@@ -71,8 +71,8 @@ public class InMemoryUserStorage implements UserStorage{
         }
         return users.get(userId);
     }
-    
-    
+
+
 
     private int getNextId() {
         int currentMaxId = users.keySet()
@@ -82,5 +82,5 @@ public class InMemoryUserStorage implements UserStorage{
                 .orElse(0);
         return ++currentMaxId;
     }
-    
+
 }

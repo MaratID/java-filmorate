@@ -11,6 +11,6 @@ public class FilmorateApplication {
 
 	public static void main(String[] args) {
 		LOG.info("Сервис запущен");
-		SpringApplication.run(FilmorateApplication.class, args);
+pringApplication.run(FilmorateApplication.class, args);
 	}
 }
