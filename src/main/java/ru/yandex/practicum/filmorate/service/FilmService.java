@@ -19,7 +19,7 @@ public class FilmService {
         this.filmStorage = filmStorage;
         this.userStorage = userStorage;
     }
-    //добавление лайка
+
     public void likeFilm(int userId, int filmId) {
         User user = userStorage.findById(userId);
         if (user == null) {
@@ -29,7 +29,7 @@ public class FilmService {
         film.setLikes(film.getLikes() + 1);
         filmStorage.update(film);
     }
-    //удаление лайка
+
     public void unlikeFilm(int userId, int filmId) {
         User user = userStorage.findById(userId);
         if (user == null) {
@@ -39,7 +39,7 @@ public class FilmService {
         film.setLikes(film.getLikes() - 1);
         filmStorage.update(film);
     }
-    //вывод 10 наиболее популярных фильмов по количеству лайков
+
     public List<Film> getPopularFilms(Integer count) {
         return filmStorage.findTopByLikes(count);
     }
