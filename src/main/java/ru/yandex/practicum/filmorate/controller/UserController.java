@@ -15,7 +15,7 @@ public class UserController {
     private final InMemoryUserStorage userStorage;
 
     @Autowired
-    public UserController (InMemoryUserStorage userStorage, UserService userService) {
+    public UserController(InMemoryUserStorage userStorage, UserService userService) {
         this.userService = userService;
         this.userStorage = userStorage;
     }
@@ -54,5 +54,4 @@ public class UserController {
     public Collection<User> getCommonFriends(@RequestBody @PathVariable int id, @PathVariable int otherId) {
        return userService.getCommonFriends(id, otherId);
     }
-
 }
