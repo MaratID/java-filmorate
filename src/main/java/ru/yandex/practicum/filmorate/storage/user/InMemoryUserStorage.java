@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Component
-public class InMemoryUserStorage implements UserStorage{
+public class InMemoryUserStorage implements UserStorage {
     private static final Logger userLog = LoggerFactory.getLogger(InMemoryUserStorage.class);
     private final Map<Integer, User> users = new HashMap<>();
 
@@ -21,7 +21,7 @@ public class InMemoryUserStorage implements UserStorage{
     }
 
     @Override
-    public User create (User user) {
+    public User create(User user) {
         if (user.getName() == null || user.getName().isBlank()) {
             user.setName(user.getLogin());
         }
