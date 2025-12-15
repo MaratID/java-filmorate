@@ -64,7 +64,7 @@ public class InMemoryFilmStorage implements FilmStorage {
     }
 
     @Override
-    public List<Film> findTopByLikes (Integer count) {
+    public List<Film> findTopByLikes(Integer count) {
         if (count == null || count <= 0) {
             count = 10; // значение по умолчанию
         }
@@ -72,7 +72,7 @@ public class InMemoryFilmStorage implements FilmStorage {
                 .sorted(Comparator.comparingLong(Film::getLikes).reversed())
                 .limit(count)
                 .collect(Collectors.toList());
-    };
+    }
 
     private int getNextId() {
         int currentMaxId = films.keySet()
