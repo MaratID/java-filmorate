@@ -18,7 +18,6 @@ public class UserService {
         this.userStorage = userStorage;
     }
 
-
     //добавление в друзья
     public void addFriend(int userId, int friendId) {
         User user = userStorage.findById(userId);
@@ -47,7 +46,7 @@ public class UserService {
         user.getFriends().remove(friend.getId());
         friend.getFriends().remove(user.getId());
     }
-    //вывод списка общих друзей
+
     public List<User> getCommonFriends(int userId, int otherId) {
         User user = userStorage.findById(userId);
         User other = userStorage.findById(otherId);
@@ -74,7 +73,5 @@ public class UserService {
         return user.getFriends().stream()
                 .map(userStorage::findById)
                 .collect(Collectors.toList());
-
     }
-
 }
