@@ -15,5 +15,5 @@ public interface FilmStorage {
 
     Optional<Film> findByFilmId(int filmId);
 
-    List<Film> findTopByLikes (Integer count);
+    List<Film> findTopByLikes(Integer count);
 }
