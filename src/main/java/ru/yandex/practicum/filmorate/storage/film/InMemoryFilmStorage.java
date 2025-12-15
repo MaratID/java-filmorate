@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 import ru.yandex.practicum.filmorate.exeptions.NotFoundExeption;
 import ru.yandex.practicum.filmorate.exeptions.ValidationException;
 import ru.yandex.practicum.filmorate.model.Film;
-
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -14,7 +13,6 @@ import java.util.stream.Collectors;
 public class InMemoryFilmStorage implements FilmStorage {
     private static final Logger filmLog = LoggerFactory.getLogger(InMemoryFilmStorage.class);
     private final Map<Integer, Film> films = new HashMap<>();
-
 
     @Override
     public Collection<Film> findAll() {

@@ -7,8 +7,6 @@ import ru.yandex.practicum.filmorate.model.Film;
 import ru.yandex.practicum.filmorate.service.FilmService;
 import ru.yandex.practicum.filmorate.storage.film.InMemoryFilmStorage;
 import java.util.Collection;
-import java.util.List;
-
 
 @RestController
 @RequestMapping("/films")
@@ -48,7 +46,7 @@ public class FilmController {
     }
 
     @GetMapping("/popular")
-    public Collection<Film> getMostLiked (@RequestParam int count) {
+    public Collection<Film> getMostLiked(@RequestParam int count) {
         return filmService.getPopularFilms(count);
     }
 }

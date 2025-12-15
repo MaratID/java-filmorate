@@ -5,10 +5,7 @@ import jakarta.validation.constraints.Positive;
 import lombok.Data;
 import ru.yandex.practicum.filmorate.annotations.FilmDesSize;
 import ru.yandex.practicum.filmorate.annotations.Filmyear;
-
 import java.time.LocalDate;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Film.

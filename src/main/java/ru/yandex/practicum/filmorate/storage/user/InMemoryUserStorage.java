@@ -6,11 +6,9 @@ import org.springframework.stereotype.Component;
 import ru.yandex.practicum.filmorate.exeptions.NotFoundExeption;
 import ru.yandex.practicum.filmorate.exeptions.ValidationException;
 import ru.yandex.practicum.filmorate.model.User;
-
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
 @Component
 public class InMemoryUserStorage implements UserStorage{
@@ -72,8 +70,6 @@ public class InMemoryUserStorage implements UserStorage{
         return users.get(userId);
     }
 
-
-
     private int getNextId() {
         int currentMaxId = users.keySet()
                 .stream()
@@ -82,5 +78,4 @@ public class InMemoryUserStorage implements UserStorage{
                 .orElse(0);
         return ++currentMaxId;
     }
-
 }
