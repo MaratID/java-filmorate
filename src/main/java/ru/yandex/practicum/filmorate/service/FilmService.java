@@ -5,19 +5,33 @@ import org.springframework.stereotype.Service;
 import ru.yandex.practicum.filmorate.exeptions.NotFoundExeption;
 import ru.yandex.practicum.filmorate.model.Film;
 import ru.yandex.practicum.filmorate.model.User;
-import ru.yandex.practicum.filmorate.storage.film.FilmStorage;
+import ru.yandex.practicum.filmorate.storage.film.InMemoryFilmStorage;
 import ru.yandex.practicum.filmorate.storage.user.InMemoryUserStorage;
+
+import java.util.Collection;
 import java.util.List;
 
 @Service
 public class FilmService {
-    FilmStorage filmStorage;
+    InMemoryFilmStorage filmStorage;
     InMemoryUserStorage userStorage;
 
     @Autowired
-    public FilmService(FilmStorage filmStorage, InMemoryUserStorage userStorage) {
+    public FilmService(InMemoryFilmStorage filmStorage, InMemoryUserStorage userStorage) {
         this.filmStorage = filmStorage;
         this.userStorage = userStorage;
+    }
+
+    public Collection<Film> finAll() {
+        return filmStorage.findAll();
+    }
+
+    public Film create(Film film) {
+        return filmStorage.create(film);
+    }
+
+    public Film update(Film newFilm) {
+        return filmStorage.update(newFilm);
     }
 
     public void likeFilm(int userId, int filmId) {

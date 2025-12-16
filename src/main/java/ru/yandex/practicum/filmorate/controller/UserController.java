@@ -12,27 +12,25 @@ import java.util.Collection;
 @RequestMapping("/users")
 public class UserController {
     private final UserService userService;
-    private final InMemoryUserStorage userStorage;
 
     @Autowired
     public UserController(InMemoryUserStorage userStorage, UserService userService) {
         this.userService = userService;
-        this.userStorage = userStorage;
     }
 
     @GetMapping
     public Collection<User> findAll() {
-        return userStorage.findAll();
+        return userService.findAll();
     }
 
     @PostMapping
     public User create(@Valid @RequestBody User user) {
-        return userStorage.create(user);
+        return userService.create(user);
     }
 
     @PutMapping
     public User update(@RequestBody User newUser) {
-        return userStorage.update(newUser);
+        return userService.update(newUser);
     }
 
     @PutMapping(value = "/{id}/friends/{friendId}")
