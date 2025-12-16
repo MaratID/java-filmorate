@@ -1,8 +1,6 @@
 package ru.yandex.practicum.filmorate.annotations;
-
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
-
 
 public class SizeValidator implements ConstraintValidator<FilmDesSize, String> {
     private int length;
