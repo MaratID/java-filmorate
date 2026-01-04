@@ -5,7 +5,6 @@ import jakarta.validation.constraints.Positive;
 import lombok.Data;
 import ru.yandex.practicum.filmorate.annotations.FilmDesSize;
 import ru.yandex.practicum.filmorate.annotations.Filmyear;
-
 import java.time.LocalDate;
 
 /**
@@ -22,6 +21,7 @@ public class Film {
     LocalDate releaseDate;
     @Positive
     Integer duration;
+    Long likes = 0L;
 
     public Film(int id, String name, String description, LocalDate releaseDate, Integer duration) {
         this.id = id;
